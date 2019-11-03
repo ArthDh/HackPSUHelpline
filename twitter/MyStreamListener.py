@@ -27,8 +27,8 @@ class MyStreamListener(tweepy.StreamListener):
             else:
                 requester = models.Requesters(
                     username=t_username,
-                    lat=t_lat,
-                    lng=t_lng,
+                    lat=t_lng,
+                    lng=t_lat,
                     message=t_message,
                     radius=t_radius
                 )
