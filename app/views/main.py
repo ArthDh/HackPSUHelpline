@@ -42,6 +42,6 @@ def api_getInNeedRequester():
 
     requester_list = list()
     for temp in requesters:
-        requester_list.append({'username': temp.username, 'lat': temp.lat, 'lng': temp.lng, 'message': temp.message, 'radius': temp.radius, 'matched': temp.matched})
+        requester_list.append({'username': temp.username, 'lat': temp.lat, 'lng': temp.lng, 'message': temp.message, 'radius': temp.radius, 'matched': temp.matched, 'type': temp.__tablename__})
     print(requester_list)
     return json.dumps(requester_list)

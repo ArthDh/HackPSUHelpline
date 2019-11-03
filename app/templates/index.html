@@ -12,25 +12,22 @@
 {% block content %}
 
     {{ m.map() }}
-    console.log("Test")
     <script type="text/javascript">
+      setTimeout(function(){
          fetch('/api/getInNeedRequester')
           .then((resp) => resp.json()) // Transform the data into json
           .then(function(data) {
-                console.log(data);
-                for (var req in data){
-                    placeMarker(map, req);
+                // console.log(data);
+                var req;
+                for (req in data){
+                    placeMarker(map, data[req]);
                 }
             }).catch(function(error) {
             console.log(error);
           });
+          },7000)
 
     </script>
 
-    <script type="text/javascript">
-          setTimeout(function(){
-            location = ''
-          },30000)
-     </script>
 
 {% endblock %}
