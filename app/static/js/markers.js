@@ -1,15 +1,15 @@
 function placeMarker(map, person) {
 
-    var icon_person = '<i class="fas fa-user-md"></i>';
+    console.log(person);
+    // var icon_person = '<i class="fas fa-user-md"></i>';
 
-    if(person.type == 'requester')
-    {
-        icon_person = '<i class="fas fa-star-of-life"></i>';
-    }
+    // if(person.type == 'requesters')
+    // {
+    //     icon_person = '<i class="fas fa-star-of-life"></i>';
+    // }
 
     var marker = new google.maps.Marker({
-            position: person.position,
-            icon: icon_person,
+            position: {'lng': Number(person.lat), 'lat': Number(person.lng)},
             map: map
           });
 
@@ -28,7 +28,7 @@ function getInfoWindow(person) {
               person.phone +" "+ person.email +"<br>"+
               '</p>'
               '</div>';
-    if(person.type == 'requester')
+    if(person.type == 'requesters')
     {
           var content = '<div class="infowindow">'+
               '<p>'+
