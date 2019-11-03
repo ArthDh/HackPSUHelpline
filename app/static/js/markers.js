@@ -30,17 +30,16 @@ function getInfoWindow(person) {
               '</div>';
     if(person.person_type == 'requesters')
     {
-          var content = '<div class="infowindow">'+
-              '<p>'+
-              person.username +
-              '</p>' +
-              '<p>' +
-               person.message +
-              '</p>' +
-              '<button onclick="respond(' + "'" +
-              person.username + "'" +
-              ')">Respond!</button>'+
-              '</div>';
+          var content = document.createElement('div');
+          content.classList.add('infowindow');
+          var p1 = document.createTextNode(person.username);
+          var p2 = document.createTextNode(person.message);
+          var bttn = document.createElement('button');
+          bttn.innerHTML = "Respond";
+          bttn.onclick = function () {
+              respond(person.username);
+          };
+          content.appendChild(p1); content.appendChild(p2); content.appendChild(bttn);
     }
   var infowindow = new google.maps.InfoWindow({content: content});
   return infowindow;
