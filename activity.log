@@ -1,0 +1,33 @@
+Exception on /api/getInNeedRequester [GET]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/arth/Desktop/Programming/Hackathons/hackpsu/app/views/main.py", line 41, in api_getInNeedRequester
+    requesters = models.Requesters.query.all()
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3186, in all
+    return list(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 105, in instances
+    util.raise_from_cause(err)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 85, in instances
+    rows = [proc(row) for row in fetch]
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 85, in <listcomp>
+    rows = [proc(row) for row in fetch]
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 572, in _instance
+    populators,
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 693, in _populate_full
+    dict_[key] = getter(row)
+TypeError: 'method' object does not support item assignment
