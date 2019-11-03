@@ -1,4 +1,8 @@
 
+.idea/
+
+*.pyc
+
 app/app.db
 
 app/views/__pycache__/

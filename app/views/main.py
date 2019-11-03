@@ -1,8 +1,11 @@
-from flask import render_template, jsonify
+from flask import render_template, jsonify, redirect, request
+from flask_login import current_user
 from app import app
 from app import models, db
 import json
 import random
+
+from twitter.Tweet import Tweet
 
 
 class User:
@@ -45,3 +48,20 @@ def api_getInNeedRequester():
         requester_list.append({'username': temp.username, 'lat': temp.lat, 'lng': temp.lng, 'message': temp.message, 'radius': temp.radius, 'matched': temp.matched, 'type': temp.__tablename__})
     print(requester_list)
     return json.dumps(requester_list)
+
+
+@app.route('/api/respond')
+def api_respond():
+    if not current_user.is_authenticated:
+        redirect('/signin')
+    else:
+        request_param: dict = dict(request.args)
+        try:
+            requester = request_param['requester']
+            email = current_user.get_id()
+            user = models.Responder.query.filter_by(email=email).first()
+            Tweet().tweet(user.first_name, requester)
+        except:
+            pass
+        finally:
+            return jsonify({})
