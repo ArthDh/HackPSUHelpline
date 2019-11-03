@@ -23,9 +23,9 @@
          fetch('/api/getInNeedRequester')
           .then((resp) => resp.json()) // Transform the data into json
           .then(function(data) {
-                // console.log(data);
                 var req;
                 for (req in data){
+                    console.log(data[req]);
                     placeMarker(map, data[req]);
                 }
             }).catch(function(error) {

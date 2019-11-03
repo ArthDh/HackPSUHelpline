@@ -40,13 +40,10 @@ def contact():
 @app.route('/api/getInNeedRequester', methods=['GET'])
 # retrieves/adds polls from/to the database
 def api_getInNeedRequester():
-
     requesters = models.Requesters.query.all()
-
     requester_list = list()
     for temp in requesters:
-        requester_list.append({'username': temp.username, 'lat': temp.lat, 'lng': temp.lng, 'message': temp.message, 'radius': temp.radius, 'matched': temp.matched, 'type': temp.__tablename__})
-    print(requester_list)
+        requester_list.append({'username': temp.username, 'lat': temp.lat, 'lng': temp.lng, 'message': temp.message, 'radius': temp.radius, 'matched': temp.matched, 'person_type': temp.__tablename__})
     return json.dumps(requester_list)
 
 

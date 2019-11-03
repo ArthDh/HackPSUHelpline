@@ -6,3 +6,7 @@
 app/app.db
 
 app/views/__pycache__/
+
+activity.log.2
+
+activity.log

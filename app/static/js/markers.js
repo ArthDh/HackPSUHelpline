@@ -1,6 +1,6 @@
 function placeMarker(map, person) {
 
-    console.log(person);
+    // console.log(person);
     // var icon_person = '<i class="fas fa-user-md"></i>';
 
     // if(person.type == 'requesters')
@@ -28,7 +28,7 @@ function getInfoWindow(person) {
               person.phone +" "+ person.email +"<br>"+
               '</p>'
               '</div>';
-    if(person.type == 'requesters')
+    if(person.person_type == 'requesters')
     {
           var content = '<div class="infowindow">'+
               '<p>'+
