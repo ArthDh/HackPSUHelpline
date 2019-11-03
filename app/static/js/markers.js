@@ -9,7 +9,7 @@ function placeMarker(map, person) {
     // }
 
     var marker = new google.maps.Marker({
-            position: {'lng': Number(person.lat), 'lat': Number(person.lng)},
+            position: {'lat': Number(person.lat), 'lng': Number(person.lng)},
             map: map
           });
 
@@ -37,8 +37,8 @@ function getInfoWindow(person) {
               '<p>' +
                person.message +
               '</p>' +
-              '<button onclick="respond(' +
-              person.username +
+              '<button onclick="respond(' + "'" +
+              person.username + "'" +
               ')">Respond!</button>'+
               '</div>';
     }

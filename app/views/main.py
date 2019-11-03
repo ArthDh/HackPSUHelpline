@@ -37,13 +37,19 @@ def contact():
     return render_template('contact.html', title='Contact')
 
 
-@app.route('/api/getInNeedRequester', methods=['GET'])
-# retrieves/adds polls from/to the database
-def api_getInNeedRequester():
-    requesters = models.Requesters.query.all()
+@app.route('/api/getUnmatchedRequest', methods=['GET'])
+def get_unmatched_request():
+    requests = models.Requesters.query.all()
     requester_list = list()
-    for temp in requesters:
-        requester_list.append({'username': temp.username, 'lat': temp.lat, 'lng': temp.lng, 'message': temp.message, 'radius': temp.radius, 'matched': temp.matched, 'person_type': temp.__tablename__})
+    for req in requests:
+        requester_list.append({
+            'username': req.username,
+            'lat': req.lat, 'lng': req.lng,
+            'message': req.message,
+            'radius': req.radius,
+            'matched': req.matched,
+            'person_type': req.__tablename__
+        })
     return json.dumps(requester_list)
 
 
