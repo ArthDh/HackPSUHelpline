@@ -12,6 +12,12 @@
 {% block content %}
 
     {{ m.map() }}
+    
+    <script type="text/javascript">
+        var trafficLayer = new google.maps.TrafficLayer();
+        trafficLayer.setMap(map);
+    </script>
+    
     console.log("Test")
     <script type="text/javascript">
          fetch('/api/getInNeedRequester')
