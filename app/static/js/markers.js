@@ -37,19 +37,20 @@ function getInfoWindow(person) {
               '<p>' +
                person.message +
               '</p>' +
-              '<button onclick="respond()">Respond!</button>'+
+              '<button onclick="respond(' +
+              person.username +
+              ')">Respond!</button>'+
               '</div>';
     }
   var infowindow = new google.maps.InfoWindow({content: content});
   return infowindow;
 }
 
-function respond() {
-
-// TODO
-// Change the persons status to serviced - delete from queue
-
-
+function respond(requester) {
+    var xmlHttp = new XMLHttpRequest();
+    var url = '/api/respond?requester='+requester;
+    xmlHttp.open( "GET", url, false );
+    xmlHttp.send( null );
 }
 
 
