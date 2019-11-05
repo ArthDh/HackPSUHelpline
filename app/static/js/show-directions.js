@@ -13,8 +13,13 @@ function get_direction(destination){
     computeTotalDistance(directionsRenderer.getDirections());
   });
 
-  return displayRoute(origin, destination, directionsService,
+  return function(position) {
+    console.log(position);
+    var origin = {'lat': position.coords.latitude, 'lng': position.coords.longitude};
+    console.log(origin);
+    displayRoute(origin, destination, directionsService,
       directionsRenderer);
+  };
 }
 
 function displayRoute(origin, destination, service, display) {

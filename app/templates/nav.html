@@ -1,6 +1,7 @@
 {% extends "map.html" %}
 
 {% block map_mod %}
+    <script src="{{ url_for('static', filename='js/show-directions.js') }}"></script>
     <script type="text/javascript">
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);

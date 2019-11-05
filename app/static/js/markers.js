@@ -32,12 +32,17 @@ function getInfoWindow(person) {
     {
           var content = document.createElement('div');
           content.classList.add('infowindow');
-          var p1 = document.createTextNode(person.username);
-          var p2 = document.createTextNode(person.message);
+          var p1 = document.createElement('p');
+          p1.innerText = person.username;
+          var p2 = document.createElement('p');
+          p2.innerText = person.message;
           var bttn = document.createElement('button');
           bttn.innerHTML = "Respond";
           bttn.onclick = function () {
               respond(person.username);
+              var fn = get_direction(new google.maps.LatLng(Number(person.lat), Number(person.lng)));
+
+              navigator.geolocation.getCurrentPosition(fn);
           };
           content.appendChild(p1); content.appendChild(p2); content.appendChild(bttn);
     }
