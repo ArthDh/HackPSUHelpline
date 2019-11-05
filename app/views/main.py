@@ -56,7 +56,7 @@ def get_unmatched_request():
 @app.route('/api/respond')
 def api_respond():
     if not current_user.is_authenticated:
-        redirect('/signin')
+        redirect('/signin', code=302)
     else:
         request_param: dict = dict(request.args)
         try:
